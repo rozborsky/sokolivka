@@ -34,5 +34,4 @@ public class mainController {
     public String signUp() {
         return "signUp";
     }
-
 }

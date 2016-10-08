@@ -1,10 +1,15 @@
 body{
     margin: 0;
-    background: #FAF0E6;
+    background: #436923;
+    <!--81b54a-->
 }
 
 #tmp{
     text-align:  center;
     font: arial, sans-serif;
+    color: red;
+}
+
+#error{
     color: red;
 }

@@ -8,13 +8,21 @@
                             http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/signIn" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/signIn" access="isAuthenticated()"/>
+
+        <form-login
+                login-processing-url="/j_spring_security_check"
+                login-page="/enterData" default-target-url="/signInTMP"
+                authentication-failure-url="/signIn?error=true"
+                username-parameter="user_login"
+                password-parameter="password_login" />
+        <logout logout-url="/j_spring_security_logout" logout-success-url="/main"/>
+        <csrf disabled="true"/>
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="admin" password="apass" authorities="ROLE_ADMIN"/>
                 <user name="user" password="upass" authorities="ROLE_USER"/>
             </user-service>
         </authentication-provider>

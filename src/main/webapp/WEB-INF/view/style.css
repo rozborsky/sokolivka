@@ -3,3 +3,8 @@ body{
     background: #FAF0E6;
 }
 
+#tmp{
+    text-align:  center;
+    font: arial, sans-serif;
+    color: red;
+}

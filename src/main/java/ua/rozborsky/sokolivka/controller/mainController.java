@@ -30,8 +30,8 @@ public class mainController {
         return "chat";
     }
 
-    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
-    public String signUp() {
-        return "signUp";
+    @RequestMapping(value = "/signIn", method = RequestMethod.GET)
+    public String signIn() {
+        return "signInTMP";
     }
 }

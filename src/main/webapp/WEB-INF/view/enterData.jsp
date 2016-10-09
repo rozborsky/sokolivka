@@ -20,6 +20,9 @@
             </tr>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <tr>
+                <td>Запам&#8217ятати мене: <input name="_spring_security_remember_me" type="checkbox" /></td>
+            </tr>
+            <tr>
                 <td><input type='submit' name='submit' value='submit'/></td>
             </tr>
         </table>

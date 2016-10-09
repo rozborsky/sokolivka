@@ -4,7 +4,6 @@
 
 <h1>галерея</h1>
 
-<jsp:include page="navigation.jsp" />
 
 </br>
 

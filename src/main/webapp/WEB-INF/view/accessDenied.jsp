@@ -2,6 +2,7 @@
 
 <jsp:include page="header.jsp" />
 
-<h1>реєстрація</h1>
+<h1 id="error">ВИ НЕ МОЖЕТЕ ПЕРЕГЛЯДАТИ ЦЮ СТОРІНКУ</h1>
+
 
 <jsp:include page="footer.jsp" />

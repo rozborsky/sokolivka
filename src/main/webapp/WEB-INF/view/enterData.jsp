@@ -3,10 +3,9 @@
 
 <jsp:include page="header.jsp" />
 
-<h1>вхід успішний</h1>
 
 <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
-        <p id="error">Не правильний логін або пароль</p>
+        <p id="#errorForm">Не правильний логін або пароль</p>
 </c:if>
 
     <form name='form_login' action="j_spring_security_check" method='POST'>
@@ -25,7 +24,5 @@
             </tr>
         </table>
     </form>
-
-<jsp:include page="navigation.jsp" />
 
 <jsp:include page="footer.jsp" />

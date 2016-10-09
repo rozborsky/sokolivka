@@ -37,6 +37,11 @@ public class mainController {
         return "signInTMP";
     }
 
+    @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+    public String accessDenied() {
+        return "accessDenied";
+    }
+
     @RequestMapping(value = "/enterData", method = RequestMethod.GET)
     public ModelAndView enterData(@RequestParam(value = "error", required = false) String error) {
         ModelAndView modelAndView = new ModelAndView();

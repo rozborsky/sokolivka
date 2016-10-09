@@ -1,15 +1,18 @@
 body{
     margin: 0;
-    background: #436923;
-    <!--81b54a-->
+    background: linear-gradient(to top, #81b54a, #436923);
 }
 
-#tmp{
+#navigationBar{
+    background: linear-gradient(to top, #81b54a, #436923);
+}
+
+#tmp, #error{
     text-align:  center;
     font: arial, sans-serif;
     color: red;
 }
 
-#error{
+#errorForm{
     color: red;
 }

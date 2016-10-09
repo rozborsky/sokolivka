@@ -4,6 +4,5 @@
 
 <h1>Чат</h1>
 
-<jsp:include page="navigation.jsp" />
 
 <jsp:include page="footer.jsp" />

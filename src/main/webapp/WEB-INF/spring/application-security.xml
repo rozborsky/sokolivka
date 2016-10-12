@@ -26,10 +26,8 @@
 
     <authentication-manager>
         <authentication-provider>
-            <user-service>
-                <user name="user" password="upass" authorities="ROLE_USER"/>
-                <user name="admin" password="apass" authorities="ROLE_ADMIN"/>
-            </user-service>
+
+            <jdbc-user-service data-source-ref="dataSource"/>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

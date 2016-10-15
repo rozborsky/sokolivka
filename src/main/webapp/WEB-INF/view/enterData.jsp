@@ -11,11 +11,11 @@
     <form name='form_login' action="j_spring_security_check" method='POST'>
         <table>
             <tr>
-                <td>User:</td>
+                <td>логін:</td>
                 <td><input type='text' name='user_login' value=''/></td>
             </tr>
             <tr>
-                <td>Password:</td>
+                <td>пароль:</td>
                 <td><input type='password' name='password_login'/></td>
             </tr>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -23,7 +23,7 @@
                 <td>Запам&#8217ятати мене: <input name="_spring_security_remember_me" type="checkbox" /></td>
             </tr>
             <tr>
-                <td><input type='submit' name='submit' value='submit'/></td>
+                <td><input type='submit' name='submit' value='увійти'/></td>
             </tr>
         </table>
     </form>

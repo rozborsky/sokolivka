@@ -9,7 +9,7 @@
     <a href="chat">чат</a>
 
     <sec:authorize access="isAnonymous()">
-        <a href="sighUp">реєстрація</a>
+        <a href="signUp">реєстрація</a>
         <a href="signIn">вхід</a>
     </sec:authorize>
 

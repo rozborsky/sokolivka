@@ -1,17 +1,19 @@
 package ua.rozborsky.sokolivka.controller;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import ua.rozborsky.sokolivka.server.HibernateUtil;
+import ua.rozborsky.sokolivka.classes.User;
+import ua.rozborsky.sokolivka.interfaces.Person;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javax.validation.Valid;
+
 
 /**
  * Created by roman on 07.10.2016.
@@ -19,35 +21,30 @@ import java.sql.SQLException;
 @Controller
 public class mainController {
 
-    @RequestMapping(value = {"/", "main"}, method = RequestMethod.GET)
-    public String main() {
+    @Autowired
+    private Person person;
 
-        return "main";
+    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
+    public ModelAndView signUp() {
+
+        return new ModelAndView("signUp", "person", person);
     }
 
-    @RequestMapping(value = "/history", method = RequestMethod.GET)
-    public String history() {
-        return "history";
+    @RequestMapping(value = "/registrationHandler", method = RequestMethod.POST)
+    public String registrationHandler(@Valid @ModelAttribute("person") User person,
+                                      BindingResult bindingResult) {
+        if(!person.isEqualsPasswords()){
+            bindingResult.rejectValue("password", "password", "паролі не співпадають");
+        }
+        if (bindingResult.hasErrors()){
+            return "signUp";
+        }
+        return "redirect:/cabinet";
     }
 
-    @RequestMapping(value = "/gallery", method = RequestMethod.GET)
-    public String gallery() {
-        return "gallery";
-    }
-
-    @RequestMapping(value = "/chat", method = RequestMethod.GET)
-    public String chat() {
-        return "chat";
-    }
-
-    @RequestMapping(value = "/signIn", method = RequestMethod.GET)
-    public String signIn() {
-        return "signInTMP";
-    }
-
-    @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
-    public String accessDenied() {
-        return "accessDenied";
+    @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
+    public String cabinet() {
+        return "cabinet";
     }
 
     @RequestMapping(value = "/enterData", method = RequestMethod.GET)

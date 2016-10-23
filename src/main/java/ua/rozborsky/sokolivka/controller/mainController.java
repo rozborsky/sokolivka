@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ua.rozborsky.sokolivka.classes.User;
 import ua.rozborsky.sokolivka.interfaces.Person;
+import ua.rozborsky.sokolivka.model.RegisterUser;
 
 import javax.validation.Valid;
 
@@ -23,6 +24,9 @@ public class mainController {
 
     @Autowired
     private Person person;
+
+    @Autowired
+    RegisterUser registerUser;
 
     @RequestMapping(value = "/signUp", method = RequestMethod.GET)
     public ModelAndView signUp() {
@@ -39,6 +43,9 @@ public class mainController {
         if (bindingResult.hasErrors()){
             return "signUp";
         }
+
+        registerUser.addUser(person);
+
         return "redirect:/cabinet";
     }
 

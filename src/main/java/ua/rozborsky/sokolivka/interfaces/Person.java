@@ -4,6 +4,14 @@ package ua.rozborsky.sokolivka.interfaces;
  * Created by roman on 14.10.2016.
  */
 public interface Person {
+    int getId();
+
+    void setId(int id);
+
+    String getLogin();
+
+    void setLogin(String login);
+
     String getName();
 
     void setName(String name);
@@ -25,4 +33,8 @@ public interface Person {
     void setConfirmPassword(String confirmPassword);
 
     boolean isEqualsPasswords();
+
+    int getEnabled();
+
+    void setEnabled(int enabled);
 }

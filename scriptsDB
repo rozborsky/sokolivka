@@ -1,5 +1,17 @@
 CREATE SCHEMA `sokolivkadb` ;
 
+    create table sokolivkadb.users (
+        id integer not null auto_increment,
+        username varchar(20) not null,
+        name varchar(20) not null,
+        secondName varchar(20) not null,
+        eMail varchar(20) not null,
+        enabled integer,
+        password varchar(60) not null,
+        confirmPassword varchar(60),
+        primary key (id)
+    ) engine = InnoDb;
+
 create table sokolivkadb.users (
     username varchar(50) not null primary key,
     password varchar(60) not null,
@@ -36,3 +48,6 @@ INSERT INTO `sokolivkadb`.`group_members` (`id`, `username`, `group_id`) VALUES 
 INSERT INTO `sokolivkadb`.`group_authorities` (`group_id`, `authority`) VALUES ('1', 'ROLE_ADMIN');
 INSERT INTO `sokolivkadb`.`group_authorities` (`group_id`, `authority`) VALUES ('1', 'ROLE_USER');
 INSERT INTO `sokolivkadb`.`group_authorities` (`group_id`, `authority`) VALUES ('2', 'ROLE_USER');
+
+
+INSERT INTO `sokolivkadb`.`users` (`username`, `name`, `secondname`, `password`, `enabled`) VALUES ('user', 'user', 'userssname', '$2a$08$uSsBuAuqgO3d0M2bRjYSb.SoTCgUd0ku6AvIJg45JtxaTk62ovCye', '2');

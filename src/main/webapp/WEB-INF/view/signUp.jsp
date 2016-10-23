@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="header.jsp" />
 
 <h1>реєстрація</h1>
 <form:form method="POST" action="registrationHandler" commandName="person">
    <table>
+        <tr>
+            <td><form:label path="login">логін</form:label></td>
+            <td><form:input path="login"/></td>
+            <td><form:errors path="login"/></td>
+        </tr>
         <tr>
             <td><form:label path="name">ім'я</form:label></td>
             <td><form:input path="name"/></td>

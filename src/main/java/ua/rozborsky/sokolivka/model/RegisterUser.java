@@ -3,6 +3,7 @@ package ua.rozborsky.sokolivka.model;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
+import ua.rozborsky.sokolivka.classes.PersonValidator;
 import ua.rozborsky.sokolivka.classes.User;
 import ua.rozborsky.sokolivka.server.HibernateUtil;
 

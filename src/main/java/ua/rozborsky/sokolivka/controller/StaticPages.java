@@ -1,11 +1,12 @@
 package ua.rozborsky.sokolivka.controller;
 
 
+
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 
 
 /**
@@ -15,7 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class StaticPages {
     @RequestMapping(value = {"/", "main"}, method = RequestMethod.GET)
     public String main() {
+        final String plain_password ="1111";
+        String pw_hash = BCrypt.hashpw(plain_password, BCrypt.gensalt());
+        System.out.println(pw_hash);
 
+        String pw_hash1 = BCrypt.hashpw(plain_password, BCrypt.gensalt());
+        System.out.println(pw_hash1);
+
+        System.out.println(BCrypt.checkpw(plain_password, pw_hash));
         return "main";
     }
 

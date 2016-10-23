@@ -8,7 +8,6 @@ CREATE SCHEMA `sokolivkadb` ;
         eMail varchar(20) not null,
         enabled integer,
         password varchar(60) not null,
-        confirmPassword varchar(60),
         primary key (id)
     ) engine = InnoDb;
 
@@ -36,8 +35,8 @@ create table sokolivkadb.group_members (
     foreign key (group_id) references sokolivkadb.groups (id)
 ) engine = InnoDb;
 
-INSERT INTO `sokolivkadb`.`users` (`username`, `password`, `enabled`) VALUES ('user', '$2a$08$uSsBuAuqgO3d0M2bRjYSb.SoTCgUd0ku6AvIJg45JtxaTk62ovCye', '2');upass
-INSERT INTO `sokolivkadb`.`users` (`username`, `password`, `enabled`) VALUES ('admin', '$2a$08$SMrQ0GX9wFC471PXoobFGuxalo7VTE.Qq8mXCuZv0I8Rc4PI9hwg.', '1');apass
+INSERT INTO `sokolivkadb`.`users` (`username`, `name`, `secondname`, `eMail`, `password`, `enabled`) VALUES ('userr', 'user', 'userssname', 'uuuu@mmm', '$2a$08$uSsBuAuqgO3d0M2bRjYSb.SoTCgUd0ku6AvIJg45JtxaTk62ovCye', '2');upass
+INSERT INTO `sokolivkadb`.`users` (`username`, `name`, `secondname`, `eMail`, `password`, `enabled`) VALUES ('admin', 'user', 'userssname', 'uuuu@mmm', '$2a$08$SMrQ0GX9wFC471PXoobFGuxalo7VTE.Qq8mXCuZv0I8Rc4PI9hwg.', '1');apass
 
 INSERT INTO `sokolivkadb`.`groups` (`id`, `group_name`) VALUES ('1', 'administrators');
 INSERT INTO `sokolivkadb`.`groups` (`id`, `group_name`) VALUES ('2', 'users');

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ua.rozborsky.sokolivka.classes.PersonValidator;
 import ua.rozborsky.sokolivka.classes.User;
 import ua.rozborsky.sokolivka.interfaces.Person;
 import ua.rozborsky.sokolivka.model.RegisterUser;
@@ -26,6 +27,9 @@ public class mainController {
     private Person person;
 
     @Autowired
+    private User user;
+
+    @Autowired
     RegisterUser registerUser;
 
     @RequestMapping(value = "/signUp", method = RequestMethod.GET)
@@ -35,7 +39,7 @@ public class mainController {
     }
 
     @RequestMapping(value = "/registrationHandler", method = RequestMethod.POST)
-    public String registrationHandler(@Valid @ModelAttribute("person") User person,
+    public String registrationHandler(@Valid @ModelAttribute("person") PersonValidator person,
                                       BindingResult bindingResult) {
         if(!person.isEqualsPasswords()){
             bindingResult.rejectValue("password", "password", "паролі не співпадають");
@@ -43,8 +47,8 @@ public class mainController {
         if (bindingResult.hasErrors()){
             return "signUp";
         }
-
-        registerUser.addUser(person);
+        user.setValues(person);
+        registerUser.addUser(user);
 
         return "redirect:/cabinet";
     }

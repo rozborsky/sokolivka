@@ -21,6 +21,7 @@
         <access-denied-handler error-page="/accessDenied"/>
         <logout logout-url="/j_spring_security_logout" logout-success-url="/main"/>
         <csrf disabled="true"/>
+        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
         <remember-me/>
     </http>
 

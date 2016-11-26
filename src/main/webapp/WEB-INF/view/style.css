@@ -3,6 +3,9 @@ body{
     background: linear-gradient(to top, #81b54a, #436923);
 }
 
+a{
+    text-decoration: none;
+}
 #navigationBar{
     background: linear-gradient(to top, #81b54a, #436923);
 }
@@ -14,5 +17,9 @@ body{
 }
 
 #errorForm{
+    color: red;
+}
+
+#username{
     color: red;
 }

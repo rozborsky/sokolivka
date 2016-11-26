@@ -14,6 +14,7 @@
     </sec:authorize>
 
     <sec:authorize access="isAuthenticated()">
+       <a href="cabinet" id="username"><sec:authentication property="principal.username" /></a>
        <a href="j_spring_security_logout">logout</a>
     </sec:authorize>
 </div>
